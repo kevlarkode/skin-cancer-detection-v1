@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/assets/imgs/favicon.png" id="icon" />
+    <title>Skin Cancer Detection</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Skin Cancer Detection</h1>
+      </header>
+      <nav>
+        <ul>
+          <li>
+            <a
+              href="/"
+              style="background-color: #ff6464; color: hsl(207, 100%, 90%)"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a href="/views/about.ejs" style="color: darkblue">About</a>
+          </li>
+        </ul>
+      </nav>
+      <main>
+        <div class="wrapper">
+          <label>
+            <div class="image-preview-div">
+              <img
+                id="upload-preview"
+                src="/assets/imgs/image-upload-default.webp"
+                alt="image-preview"
+                width="300px"
+              />
+            </div>
+
+            <div class="upload-options">
+              <input
+                type="file"
+                name="upload-image"
+                id="upload-image"
+                accept="image/*"
+              />
+            </div>
+          </label>
+        </div>
+
+        <div class="model-loading-div progress-bar">
+          <span>The model is loading...</span>
+        </div>
+
+        <div class="image-upload-button-div">
+          <button id="upload-btn">Upload</button>
+        </div>
+
+        <div class="results-div">
+          <h2>Results:</h2>
+          <br />
+          <p class="input-filename">Filename : ???.jpg</p>
+          <br />
+          <h3>Classification result (Type of cancer detected):</h3>
+          <p class="clfn-res">?????</p>
+          <br />
+          <h3>Segmentation result (Generated mask image):</h3>
+          <img
+            id="result-mask-preview"
+            src="/assets/imgs/default-mask-img.png"
+            alt="result-mask-preview"
+            width="300px"
+          />
+          <p class="seg-res-area">Area affected : ???</p>
+        </div>
+      </main>
+      <footer>
+        <p>
+          © <span id="year"></span> Skin Cancer Detection | All rights reserved.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      document.querySelector("#year").innerHTML = new Date().getFullYear();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3/dist/tf.min.js"></script>
+    <script src="/assets/js/script.js"></script>
+
+    <script src="/helper/target_classes.js"></script>
+    <script src="/helper/app.js"></script>
+  </body>
+</html>
